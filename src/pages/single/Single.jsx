@@ -45,7 +45,7 @@ export default function Single() {
           </div>
           <div className="right">
 
-            <Chart aspect={3/1} title={"User Spending ( Last 6 Months )"}/>
+            <Chart aspect={3.5/1} title={"User Spending ( Last 6 Months )"}/>
           </div>
         </div>
         <div className="bottom">

@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
@@ -13,14 +13,25 @@ import StoreIcon from "@mui/icons-material/Store";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import SettingsSystemDaydreamIcon from "@mui/icons-material/SettingsSystemDaydream";
 import { Link } from "react-router-dom";
-import {DarkModeContext} from "../../context/darkModeContext"
+import { DarkModeContext } from "../../context/darkModeContext";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function Sidebar() {
-  const { dispatch } = useContext(DarkModeContext)
+  const { dispatch } = useContext(DarkModeContext);
+  const navitage = useNavigate();
+
+  const Signout = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navitage("/login");
+      })
+  };
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/" style={{textDecoration:"none"}}>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <span className="logo">Rutvik Ghaskata</span>
         </Link>
       </div>
@@ -33,17 +44,17 @@ export default function Sidebar() {
             <span>Dashboard</span>
           </li>
           <p className="title">LISTS</p>
-          <Link to="/users" style={{textDecoration:"none"}}>
-          <li>
-            <PersonOutlineIcon className="icon" />
-            <span>Users</span>
-          </li>
+          <Link to="/users" style={{ textDecoration: "none" }}>
+            <li>
+              <PersonOutlineIcon className="icon" />
+              <span>Users</span>
+            </li>
           </Link>
-          <Link to="/products" style={{textDecoration:"none"}}>
-          <li>
-            <StoreIcon className="icon" />
-            <span>Products</span>
-          </li>
+          <Link to="/products" style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Products</span>
+            </li>
           </Link>
           <li>
             <CreditCardIcon className="icon" />
@@ -79,15 +90,21 @@ export default function Sidebar() {
             <AccountCircleIcon className="icon" />
             <span>Profile</span>
           </li>
-          <li>
+          <li onClick={Signout}>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
           </li>
         </ul>
       </div>
       <div className="button">
-        <div className="colorOption" onClick={()=>dispatch({type:"LIGHT"})}></div>
-        <div className="colorOption" onClick={()=>dispatch({type:"DARK"})}></div>
+        <div
+          className="colorOption"
+          onClick={() => dispatch({ type: "LIGHT" })}
+        ></div>
+        <div
+          className="colorOption"
+          onClick={() => dispatch({ type: "DARK" })}
+        ></div>
       </div>
     </div>
   );
