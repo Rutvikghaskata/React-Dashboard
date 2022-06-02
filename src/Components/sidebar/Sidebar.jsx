@@ -22,16 +22,14 @@ export default function Sidebar() {
   const navitage = useNavigate();
 
   const Signout = () => {
-    auth
-      .signOut()
-      .then(() => {
-        navitage("/login");
-      })
+    auth.signOut().then(() => {
+      navitage("/login");
+    });
   };
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/dashboard" style={{ textDecoration: "none" }}>
           <span className="logo">Rutvik Ghaskata</span>
         </Link>
       </div>
@@ -39,10 +37,12 @@ export default function Sidebar() {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>Dashboard</span>
-          </li>
+          <Link to="/dashboard" style={{ textDecoration: "none" }}>
+            <li>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
+          </Link>
           <p className="title">LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>

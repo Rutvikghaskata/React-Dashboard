@@ -13,6 +13,10 @@
     background-color: rgb(13, 1, 73);
     overflow: hidden;
 
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+
     .image {
         height:100%;
         width:100%;
@@ -21,8 +25,64 @@
     .image-upper{
         height: 100vh;
         width: 50vw;
+        display: flex;
         position:absolute;
+        align-items: center;
+        justify-content: center;
         background-color: rgba(13, 1, 73,0.7);
+        @media screen and (max-width: 1024px) {
+          width: 100%;
+        }
+        .form {
+          width: 50%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
+        padding: 100px 20px 100px 20px;
+        border-radius: 10px;
+        box-shadow: 4px 8px 20px 2px rgba(201, 201, 201, 0.47);
+        @media screen and (max-width: 1024px) {
+          display:flex;
+        }
+        input {
+          width: 100%;
+          height: 30px;
+          margin: 0 0 20px 0;
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid gray;
+          outline: none;
+          font-size: 20px;
+        }
+  
+        button {
+          width: 100%;
+          height: 45px;
+          margin-top: 20px;
+          border: none;
+          background-color: rgb(13, 1, 73);
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+  
+        span {
+          font-size: 16px;
+          color: red;
+          margin-top: 10px;
+          margin: -20px 0 20px 0;
+          align-self: flex-start;
+        }
+        .err{
+          font-size: 18px;
+          color: red;
+          margin-top: 10px;
+          align-self: center;
+        }
+      }
     }
   }
   .login-part {
@@ -32,7 +92,11 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    form {
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+    .form {
         width: 40%;
       display: flex;
       flex-direction: column;
@@ -67,9 +131,17 @@
       }
 
       span {
+        font-size: 16px;
+        color: red;
+        margin-top: 10px;
+        margin: -20px 0 20px 0;
+        align-self: flex-start;
+      }
+      .err{
         font-size: 18px;
         color: red;
         margin-top: 10px;
+        align-self: center;
       }
     }
   }
