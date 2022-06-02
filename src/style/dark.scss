@@ -18,7 +18,7 @@
       border-radius: 5px;
 
       &.Approved {
-        color: #75c31e;
+        color: #75c31e; 
         background-color: rgba(0, 128, 0, 0.151);
       }
       &.Pending {
@@ -40,6 +40,10 @@
 
     .search {
       border-color: gray;
+
+      input{
+        color: #fff;
+      }
     }
   }
 
