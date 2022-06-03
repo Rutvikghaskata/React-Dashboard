@@ -6,6 +6,7 @@ import { Dots } from "react-activity";
 import "react-activity/dist/library.css";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "../../Components/modal/modal";
+import { AiFillInfoCircle } from "react-icons/ai";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -58,6 +59,7 @@ const Login = () => {
         });
     }
   };
+  
 
   return (
     <div className="login">
@@ -80,6 +82,7 @@ const Login = () => {
               onBlur={(e) => setfoucs("")}
             />
             {emailError && <span>{emailError}</span>}
+
             <input
               className={
                 foucs === 2
@@ -94,6 +97,7 @@ const Login = () => {
               onFocus={(e) => setfoucs(2)}
               onBlur={(e) => setfoucs("")}
             />
+
             {passwordError && <span>{passwordError}</span>}
             <button type="submit" onClick={handleLogin}>
               {loading ? <Dots /> : "Login"}
@@ -116,20 +120,54 @@ const Login = () => {
             onBlur={(e) => setfoucs("")}
           />
           {emailError && <span>{emailError}</span>}
-          <input
-            className={
-              foucs === 2 ? "border-focus" : passwordError ? "border-error" : ""
-            }
-            type="password"
-            placeholder="password"
-            onChange={(e) => setPassword(e.target.value)}
-            onFocus={(e) => setfoucs(2)}
-            onBlur={(e) => setfoucs("")}
-          />
+          <div className="pass-container">
+            <input
+              className={
+                foucs === 2
+                  ? "border-focus"
+                  : passwordError
+                  ? "border-error"
+                  : ""
+              }
+              type="password"
+              placeholder="password"
+              onChange={(e) => setPassword(e.target.value)}
+              onFocus={(e) => setfoucs(2)}
+              onBlur={(e) => setfoucs("")}
+            />
+            {/* <div className="eye-btn">
+              {" "}
+              <AiFillInfoCircle
+                style={{
+                  color: "rgb(13, 1, 73)",
+                  height: "100%",
+                  width: "100%",
+                }}
+              />
+            </div> */}
+          </div>
           {passwordError && <span>{passwordError}</span>}
           <button type="submit" onClick={handleLogin}>
             {loading ? <Dots /> : "Login"}
           </button>
+          <div className="info-container">
+          <div className="eye-btn">
+              {" "}
+              <AiFillInfoCircle
+                style={{
+                  color: "rgb(13, 1, 73)",
+                  height: "100%",
+                  width: "100%",
+                }}
+              />
+            </div>
+            <div className="info-bubble">
+              <p>PASSWORD MUST INCLUDE</p>
+              <li>minimum 6 characters.</li>
+              <li>upper case and lower case letters.</li>
+              <li>password must be contain special character.</li>
+            </div>
+          </div>
         </div>
       </div>
       <Modal
