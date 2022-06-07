@@ -10,7 +10,7 @@ export default function Onboarding() {
 
   useEffect(() => {
     setTimeout(() => {
-      user ? navitage("/dashboard") : navitage("/login");
+      user ? navitage("/new-dashboard") : navitage("/login");
     }, 5000);
   });
   return <div className="onboarding"></div>;

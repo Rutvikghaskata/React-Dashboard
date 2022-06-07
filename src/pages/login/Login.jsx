@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./login.scss";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -51,7 +51,7 @@ const Login = () => {
           // Signed in
           // const user = userCredential.user;
           // dispatch({type:"LOGIN", payload:user})
-          navitage("/dashboard");
+          navitage("/new-dashboard");
         })
         .catch((error) => {
           setLoading(false);
@@ -59,11 +59,22 @@ const Login = () => {
         });
     }
   };
-  
+
+  const [animation, setAnimation] = useState(false);
+  const [animation2, setAnimation2] = useState(false);
+  const [animationTitle, setAnimationTitle] = useState(false);
+
+  useEffect(() => {
+    setAnimation(true);
+    setTimeout(() => setAnimation2(true), 1500);
+    setTimeout(() => setAnimationTitle(true), 3000);
+  });
 
   return (
     <div className="login">
-      <div className="image-part">
+      <div
+        className={animation2 ? "image-part" : "image-part blank-image-part"}
+      >
         <img
           src="https://cdn.wallpapersafari.com/58/98/gXozQ2.jpg"
           alt=""
@@ -82,32 +93,69 @@ const Login = () => {
               onBlur={(e) => setfoucs("")}
             />
             {emailError && <span>{emailError}</span>}
-
-            <input
-              className={
-                foucs === 2
-                  ? "border-focus"
-                  : passwordError
-                  ? "border-error"
-                  : ""
-              }
-              type="password"
-              placeholder="password"
-              onChange={(e) => setPassword(e.target.value)}
-              onFocus={(e) => setfoucs(2)}
-              onBlur={(e) => setfoucs("")}
-            />
-
+            <div className="pass-container">
+              <input
+                className={
+                  foucs === 2
+                    ? "border-focus"
+                    : passwordError
+                    ? "border-error"
+                    : ""
+                }
+                type="password"
+                placeholder="password"
+                onChange={(e) => setPassword(e.target.value)}
+                onFocus={(e) => setfoucs(2)}
+                onBlur={(e) => setfoucs("")}
+              />
+              {/* <div className="eye-btn">
+              {" "}
+              <AiFillInfoCircle
+                style={{
+                  color: "rgb(13, 1, 73)",
+                  height: "100%",
+                  width: "100%",
+                }}
+              />
+            </div> */}
+            </div>
             {passwordError && <span>{passwordError}</span>}
             <button type="submit" onClick={handleLogin}>
               {loading ? <Dots /> : "Login"}
             </button>
-            {/* {error && <span className="err">Wrong email or password!</span>} */}
+            <div className="info-container">
+              <div className="eye-btn">
+                {" "}
+                <AiFillInfoCircle
+                  style={{
+                    color: "rgb(13, 1, 73)",
+                    height: "100%",
+                    width: "100%",
+                  }}
+                />
+              </div>
+              <div className="info-bubble">
+                <p>PASSWORD MUST INCLUDE</p>
+                <li>minimum 6 characters.</li>
+                <li>upper case and lower case letters.</li>
+                <li>password must be contain special character.</li>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="login-part">
-        <h1 className="title">Sign in</h1>
+      <div
+        className={
+          animation2
+            ? "login-part login-animation login-animation-2"
+            : animation
+            ? "login-part login-animation"
+            : "login-part"
+        }
+      >
+        <h1 className={animationTitle ? "animationTitle" : "title"}>
+          Sign in
+        </h1>
         <div className="form">
           <input
             className={
@@ -151,7 +199,7 @@ const Login = () => {
             {loading ? <Dots /> : "Login"}
           </button>
           <div className="info-container">
-          <div className="eye-btn">
+            <div className="eye-btn">
               {" "}
               <AiFillInfoCircle
                 style={{

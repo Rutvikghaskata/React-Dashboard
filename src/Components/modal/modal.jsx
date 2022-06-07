@@ -28,6 +28,7 @@ const ModalWrapper = styled.div`
   @media screen and (max-width: 1024px) {
     width: 350px;
     height: 200px;
+    border-radius: 5px;
   }
 `;
 
@@ -84,6 +85,13 @@ const CloseModalButton = styled(MdClose)`
   padding: 0;
   z-index: 10;
   transition: all 1s;
+
+  @media screen and (max-width: 1024px) {
+    width: 18px;
+    height: 18px;
+    top: 10px;
+    right: 10px;
+  }
 
   &:hover {
     color: rgb(13, 1, 73);
