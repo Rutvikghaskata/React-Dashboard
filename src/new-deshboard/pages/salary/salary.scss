@@ -14,5 +14,41 @@ $primary-color: #eaf2ffa4;
         background-color: transparent;
         margin-bottom: 30px;
         overflow: scroll;
+
+        .info-wrapper {
+          height: cal(100vh -80px);
+          .info {
+            height: 750px;
+            background-color: #fff;
+            margin-right: 50px;
+            border-radius: 60px;
+            padding: 30px;
+            display: flex;
+
+            .sal-chat-and-info-container{
+              display: flex;
+              height:100%;
+              width: 100%;
+              background-color: #fff;
+              border-radius: 40px;
+              .sal-chart-container{
+                display: flex;
+                width: 60%;
+                background-color: $primary-color;
+                border-radius: 30px;
+                margin:30px 30px 30px 30px;
+                justify-content: center;
+                align-items: center;
+              }
+              .info-container{
+                width: 40%;
+                background-color: $primary-color;
+                border-radius: 30px;
+                margin:30px 30px 30px 30px;
+              }
+            }
+            
+          }
+        }
     }
 }

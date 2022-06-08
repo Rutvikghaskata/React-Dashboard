@@ -3,6 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 2s;
+  transform: translateX(0%);
 
   .image-part {
     height: 100vh;
@@ -318,4 +320,9 @@
   .login-animation-2 {
     transform: translateX(0%);
   }
+}
+
+.slide-login{
+  transition: all 2s;
+  transform: translateY(-100%);
 }

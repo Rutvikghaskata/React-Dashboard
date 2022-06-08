@@ -51,7 +51,9 @@ const Login = () => {
           // Signed in
           // const user = userCredential.user;
           // dispatch({type:"LOGIN", payload:user})
-          navitage("/new-dashboard");
+          setSlideUp(true)
+          setTimeout(() =>{navitage("/new-dashboard");},2000)
+          
         })
         .catch((error) => {
           setLoading(false);
@@ -70,8 +72,9 @@ const Login = () => {
     setTimeout(() => setAnimationTitle(true), 3000);
   });
 
+  const [slideUp, setSlideUp] = useState(false);
   return (
-    <div className="login">
+    <div className={slideUp ? "login slide-login" : "login"}>
       <div
         className={animation2 ? "image-part" : "image-part blank-image-part"}
       >
@@ -153,9 +156,7 @@ const Login = () => {
             : "login-part"
         }
       >
-        <h1 className={animationTitle ? "animationTitle" : "title"}>
-          Sign in
-        </h1>
+        <h1 className={animationTitle ? "animationTitle" : "title"}>Sign in</h1>
         <div className="form">
           <input
             className={

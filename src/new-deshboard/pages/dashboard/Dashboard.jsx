@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import "./dashboard.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -73,8 +73,12 @@ function Dashboard() {
 
   const [loading, setLoading] = useState(false);
 
+  const [side,setSide] = useState(false);
+  
+  useEffect(() => {setSide(true)})
+
   return (
-    <div className="dashboard">
+    <div className={side ? "dashboard slide":"dashboard"}>
       <Sidebar page="dashboard" setLoading={setLoading} />
       <div className="details-wrapper">
         <Navbar />
