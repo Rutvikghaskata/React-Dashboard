@@ -17,6 +17,7 @@ import { CgGym } from "react-icons/cg";
 import { MdOutlineLocalLaundryService } from "react-icons/md";
 import { RiCarWashingLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const data = [
   { name: "January", Total: 1200 },
@@ -70,9 +71,11 @@ function Dashboard() {
 
   const [flow, setFlow] = useState("asc");
 
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className="dashboard">
-      <Sidebar page="dashboard" />
+      <Sidebar page="dashboard" setLoading={setLoading} />
       <div className="details-wrapper">
         <Navbar />
         <div className="info-wrapper">
@@ -144,7 +147,7 @@ function Dashboard() {
                       {flow === "asc" ? (
                         <BsSortAlphaDown className="icon" />
                       ) : (
-                        <BsSortAlphaDownAlt className="icon"/>
+                        <BsSortAlphaDownAlt className="icon" />
                       )}
                     </div>
                   </div>
@@ -238,6 +241,11 @@ function Dashboard() {
           </div>
         </div>
       </div>
+      {loading && (
+        <div className="loading-bg">
+          <CircularProgress color="inherit" />
+        </div>
+      )}
     </div>
   );
 }

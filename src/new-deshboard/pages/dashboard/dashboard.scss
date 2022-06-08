@@ -338,6 +338,7 @@ $primary-color: #eaf2ffa4;
                     font-size: 18px;
                     font-weight: 800;
                     color: #000;
+                    
                   }
                 }
                 .Date{
@@ -355,6 +356,7 @@ $primary-color: #eaf2ffa4;
                   height: 25px;
                   width: 25px;
                   color: #aaa;
+                  cursor: pointer;
                 }
               }
             }
@@ -482,5 +484,16 @@ $primary-color: #eaf2ffa4;
         }
       }
     }
+  }
+
+  .loading-bg{
+      z-index: 1;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display:flex;
+      background-color: rgba(252, 248, 248, 0.432) ;
+      align-items: center;
+      justify-content: center;
   }
 }

@@ -1,17 +1,24 @@
-import React from "react";
+import React,{useState} from "react";
 import "./user.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
+import CircularProgress from "@mui/material/CircularProgress";
 
-function User() {
+function Users() {
+  const [loading, setLoading] = useState(false);
   return (
     <div className="user">
-      <Sidebar page="users" />
+      <Sidebar page="users" setLoading={setLoading} />
       <div className="details-wrapper">
         <Navbar />
       </div>
+      {loading && (
+        <div className="loading-bg">
+          <CircularProgress color="inherit" />
+        </div>
+      )}
     </div>
   );
 }
 
-export default User;
+export default Users;
