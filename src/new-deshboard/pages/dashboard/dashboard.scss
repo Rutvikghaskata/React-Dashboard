@@ -6,8 +6,9 @@ $primary-color: #eaf2ffa4;
   background-color: $primary-color;
   display: flex;
   overflow: hidden;
-  transition: all 2s;
-  transform: translateY(-100%);
+  transition: all 3s;
+  // transform: translateY(-100%);
+  opacity: 0;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -500,6 +501,7 @@ $primary-color: #eaf2ffa4;
   }
 }
 .slide{
-  transition: all 2s;
-  transform: translateY(-0%);
+  transition: all 3s;
+  // transform: translateY(-0%);
+  opacity: 1;
 }

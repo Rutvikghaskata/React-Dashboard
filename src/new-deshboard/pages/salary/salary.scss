@@ -5,6 +5,7 @@ $primary-color: #eaf2ffa4;
     background-color: $primary-color;
     display: flex;
     overflow: hidden;
+    align-self: center;
     ::-webkit-scrollbar {
       display: none;
     }
@@ -45,10 +46,109 @@ $primary-color: #eaf2ffa4;
                 background-color: $primary-color;
                 border-radius: 30px;
                 margin:30px 30px 30px 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                .image {
+                  height: 150px;
+                  width: 150px;
+                  border-radius: 50%;
+                  overflow: hidden;
+                  display: flex;
+                  cursor: pointer;
+                  border:0.4rem solid #fff;
+                  justify-content: center;
+                  align-items: center;
+                  
+                  // box-shadow: -1px 3px 50px -1px rgba(0, 0, 0, 0.20);
+                  box-shadow:-0.5rem 0.5rem 1rem rgba(0,0,0,0.45),
+                             inset -0.25rem 0.25rem 0.5rem rgba(0,0,0,0.45);
+                  img {
+                    height: 70%;
+                    width: 70%;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border:1px solid rgb(213, 213, 213);
+                  }
+                }
+
+                h1{
+                  font-weight: 800;
+                  margin: 30px 0 0 0;
+
+                  @media (max-width: 1724px) {
+                    font-size: 26px;
+                    font-weight: 800;
+                   }
+                }
+
+                .section{
+                   display:flex;
+                   margin-top: 50px;
+                   width: 80%;
+                   justify-content: space-between;
+
+                   p{
+                     width: 80px;
+                     padding: 7px 0;
+                     background-color: transparent;
+                     border-radius: 10px;
+                     color: #000;
+                     display: flex;
+                     justify-content: center;
+                     align-items: center;
+                     border:4px solid #000;
+                     font-size: 18px;
+                     font-weight: 600;
+                     cursor: pointer;
+                     transition: all 0.5s;
+                     box-shadow:-0.2rem 0.2rem 1rem rgba(0,0,0,0.45),
+                             inset -0.15rem 0.15rem 0.5rem rgba(0,0,0,0.45);
+
+                             @media (max-width: 1724px) {
+                             width: 50px;
+                             padding: 2px 0;
+                             font-size: 14px;
+                             font-weight: 600;
+                             border:3px solid #000;
+                             border-radius: 5px;
+                             box-shadow:-0.1rem 0.1rem 0.25rem rgba(0,0,0,0.45),
+                             inset -0.08rem 0.08rem 0.25rem rgba(0,0,0,0.45);
+                            }
+                   }
+
+                   
+                   .selected{
+                    transition: all 0.5s;
+                     background-color: #000;
+                     color: #fff;
+                   }
+                }
+                .sal{
+                  font-size: 40px;
+                  font-weight: 900;
+
+                  @media (max-width: 1724px) {
+                    font-size: 30px;
+                    font-weight: 800;
+                   }
+                }
               }
             }
             
           }
         }
     }
+    .loading-bg{
+      z-index: 1;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display:flex;
+      background-color: rgba(252, 248, 248, 0.432) ;
+      align-items: center;
+      justify-content: center;
+  }
 }
